@@ -1,6 +1,6 @@
 .card {
   width: 23%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,6 +22,7 @@
   font-weight: bold;
   font-size: 1.2em;
   color: rgb(24, 21, 21);
+  transition: all .4s;
 }
 .editBtn:hover {
   background-color: transparent;
