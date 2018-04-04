@@ -33,7 +33,7 @@ export default {
       this.book.img ? (this.isImgValid = true) : (this.isImgValid = false);
     },
     validateDate() {
-      if (this.book.date) {
+      if (this.book.date !== "") {
         new Date(this.book.date) !== "invalid Date"
           ? (this.isDateValid = true)
           : (this.isDateValid = false);
