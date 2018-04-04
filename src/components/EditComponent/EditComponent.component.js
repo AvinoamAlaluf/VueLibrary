@@ -4,7 +4,6 @@ export default {
       book: JSON.parse(JSON.stringify(this.bookToEdit)),
       isTitleValid: false,
       isAuthorValid: false,
-      isImgValid: false,
       isDateValid: false
     };
   },
@@ -29,21 +28,20 @@ export default {
         ? (this.isAuthorValid = true)
         : (this.isAuthorValid = false);
     },
-    validateImg() {
-      this.book.img ? (this.isImgValid = true) : (this.isImgValid = false);
-    },
     validateDate() {
-      if (this.book.date !== "") {
-        new Date(this.book.date) !== "invalid Date"
+      if (this.book.date && this.book.date.length === 10) {
+        let re = /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
+        re.test(this.book.date)
           ? (this.isDateValid = true)
           : (this.isDateValid = false);
+      } else {
+        this.isDateValid = false;
       }
     },
     checkBools() {
       if (
         this.isTitleValid &&
         this.isAuthorValid &&
-        this.isImgValid &&
         this.isDateValid
       ) {
         return true;
@@ -53,7 +51,6 @@ export default {
     validateAll() {
       this.validateTitle();
       this.validateAuthor();
-      this.validateImg();
       this.validateDate();
     },
     saveClicked() {
@@ -63,7 +60,9 @@ export default {
     }
   },
   mounted() {
-    this.bookToEdit.id ? this.validateAll() : "";
+    this.bookToEdit.id
+      ? this.validateAll()
+      : (this.book.img = "static/imgs/default.jpg");
   },
   props: {
     bookToEdit: Object,

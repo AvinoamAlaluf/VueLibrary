@@ -35,23 +35,6 @@
       </div>
 
       <div class="field">
-        <label class="label formLabel">Img Url</label>
-        <div class="control has-icons-right">
-          <input 
-          v-model="book.img" 
-          class="input" 
-          :class="{'is-danger': !isImgValid}" 
-          @keyup="validateImg" 
-          type="text" 
-          placeholder="Img Url"
-          >
-          <span class="icon is-small is-right">
-            <i class="fas fa-check" :class="{'greenColor': isImgValid}"></i>
-          </span>
-        </div>
-      </div>
-
-      <div class="field">
         <label class="label formLabel">Date</label>
         <div class="control has-icons-right">
           <input 
