@@ -1,0 +1,81 @@
+<section v-if="bookToEdit">
+  <div class="modal is-active">
+    <div class="modal-background"></div>
+    <div class="modal-content modalBackground">
+      <div class="field">
+        <label class="label formLabel">Book Title</label>
+        <div class="control has-icons-right">
+          <input v-model="book.title" 
+          class="input" 
+          :class="{'is-danger': !isTitleValid || isDuplicateTitle}" 
+          @keyup="handleTitleValidation"
+          type="text" 
+          placeholder="Book Title">
+          <span class="icon is-small is-right">
+            <i class="fas fa-check" :class="{'greenColor': isTitleValid && !isDuplicateTitle}"></i>
+          </span>
+        </div>
+        <p v-if="isDuplicateTitle" class="help is-danger">Title Already Exists</p>
+      </div>
+
+      <div class="field">
+        <label class="label formLabel">Author</label>
+        <div class="control has-icons-right">
+          <input 
+          v-model="book.author" 
+          class="input" 
+          :class="{'is-danger': !isAuthorValid}" 
+          @keyup="validateAuthor" 
+          type="text" placeholder="Book Name"
+          >
+          <span class="icon is-small is-right">
+            <i class="fas fa-check" :class="{'greenColor': isAuthorValid}"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label formLabel">Img Url</label>
+        <div class="control has-icons-right">
+          <input 
+          v-model="book.img" 
+          class="input" 
+          :class="{'is-danger': !isImgValid}" 
+          @keyup="validateImg" 
+          type="text" 
+          placeholder="Img Url"
+          >
+          <span class="icon is-small is-right">
+            <i class="fas fa-check" :class="{'greenColor': isImgValid}"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label formLabel">Date</label>
+        <div class="control has-icons-right">
+          <input 
+          v-model="book.date" 
+          class="input" 
+          :class="{'is-danger': !isDateValid}" 
+          @input="validateDate" 
+          @keyup="validateDate"
+          type="date" 
+          placeholder="Book Name"
+          >
+          <span class="icon is-small is-right">
+            <i class="fas fa-check" :class="{'greenColor': isDateValid}"></i>
+          </span>
+        </div>
+        <p v-if="!isDateValid" class="help is-danger">Enter Date In Format : DD/MM/YYYY</p>
+      </div>
+
+      <div class="btnContainer">
+        <button @click="saveClicked" class="button is-primary" :disabled="!checkBools()">Save</button>
+        <button @click="cancleClicked" class="button is-danger">Cancle</button>
+      </div>
+
+    </div>
+    <button @click="cancleClicked" class="modal-close is-large" aria-label="close"></button>
+  </div>
+</section>

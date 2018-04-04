@@ -1,0 +1,21 @@
+<section class="listCompContainer">
+  <h1 class="headLine">Vue Library</h1>
+  <div class="addDiv">
+    <button class="button is-primary"   
+    @click="toggleModal">Add New Book</button>
+  </div>
+  <Edit  v-if="isModal" 
+  :bookToEdit="selectedBook"
+  :isDuplicateTitle="isDupTitle"
+  @closeModal="toggleModal"
+  @bookSaveClicked="saveBook"
+  @checkTitleDup="checkForDup"></Edit>
+  <div class="listContainer">
+
+    <Card v-for="book in books" 
+    :key="book.id" 
+    :item="book"
+    @editBookClicked="editBook"
+    @deleteBookClicked="deleteBookById"></Card>
+  </div>
+</section>

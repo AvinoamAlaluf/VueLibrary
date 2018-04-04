@@ -1,0 +1,39 @@
+.listCompContainer {
+  width: 100%;
+}
+.headLine {
+  text-align: center;
+  font-size: 4em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.addDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.listContainer {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 900px) {
+  .headLine {
+    font-size: 3.3em;
+  }
+}
+
+@media (max-width: 600px) {
+  .listCompContainer {
+    width: 100%;
+    flex-flow: column wrap;
+    justify-content: space-between;
+  }
+  .headLine {
+    font-size: 3em;
+  }
+}

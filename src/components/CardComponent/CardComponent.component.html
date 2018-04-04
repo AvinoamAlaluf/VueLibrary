@@ -1,0 +1,16 @@
+<section class="card" v-if="item">
+  <img :src="item.img" class="card-image">
+  <div class="card-content">
+    <p class="bookTitle">{{item.title | capitalize}}</p>
+    <time class="bookSubtitle" datetime="2016-1-1">{{item.date | yearOnly}}</time>
+    <p class="bookSubtitle">{{item.author | capitalize}}</p>
+  </div>
+  <div class="btnsContainer">
+    <a class="buttonTransparent editBtn" @click="editClicked">
+      <i class="far fa-edit"></i>
+    </a>
+    <a class="buttonTransparent deleteBtn" @click="deleteClicked">
+      <i class="far fa-trash-alt"></i>
+    </a>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+.modalBackground{
+    background-color: aliceblue;
+    padding: 15px;
+    border-radius: 10px;
+}
+.formLabel{
+    font-weight: bold;
+    color: rgb(12, 11, 11);
+    font-size: 1.4em;
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.greenColor{
+    color: greenyellow;
+}
+
